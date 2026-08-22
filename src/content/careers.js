@@ -1,0 +1,82 @@
+export const CAREERS_CONTENT = {
+  eyebrow: 'Join Our Global Talent Pods',
+  badge: '[CONFIRM OPEN ROLES]',
+  title: 'Build an Impactful Career with Global Industry Leaders',
+  subtitle: 'We empower ambitious professionals with international exposure, continuous skills development, and world-class work environments.',
+  intro: [
+    'At Your Source Global (YSG), we believe that superior client outcomes begin with exceptional employee experiences. Our delivery centers in the Philippines and regional offices in the US and Australia are designed to foster professional growth, cross-cultural collaboration, and high-standard operational excellence.',
+    'Join dedicated client pods where your expertise directly shapes the success of high-growth international businesses across finance, technology, customer operations, and healthcare.',
+  ],
+  cultureHighlights: [
+    {
+      title: 'Global Career Trajectory',
+      desc: 'Collaborate directly with executive teams across North America, Australia, and APAC.',
+      icon: 'Compass',
+    },
+    {
+      title: 'Competitive Rewards & Healthcare',
+      desc: 'Comprehensive HMO coverage, performance bonuses, and career milestone incentives.',
+      icon: 'HeartHandshake',
+    },
+    {
+      title: 'Continuous Skill Acceleration',
+      desc: 'Structured training programs covering modern enterprise software, GAAP standards, and IT tooling.',
+      icon: 'GraduationCap',
+    },
+    {
+      title: 'Modern Ergonomic Facilities',
+      desc: 'High-speed redundant infrastructure, collaborative lounges, and wellbeing amenities.',
+      icon: 'Building2',
+    },
+  ],
+  roleCategories: [
+    {
+      id: 'finance-lead',
+      title: 'Senior Financial Analyst & Bookkeeper',
+      department: 'Finance & Accounting',
+      location: 'Manila Hub / Hybrid',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: '3+ years GAAP / QuickBooks / NetSuite experience',
+    },
+    {
+      id: 'support-team-lead',
+      title: 'Omnichannel Customer Support Specialist (24/7)',
+      department: 'Customer Care Operations',
+      location: 'Manila Hub / Shift Rotation',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: '2+ years Zendesk / Salesforce Service Cloud',
+    },
+    {
+      id: 'ap-ar-officer',
+      title: 'Accounts Payable / Receivable Specialist',
+      department: 'Finance & Accounting',
+      location: 'Manila Hub / Hybrid',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: '2+ years 3-way matching and invoice automation',
+    },
+    {
+      id: 'it-systems-eng',
+      title: 'Tier-2 IT Helpdesk & Systems Engineer',
+      department: 'IT & Technical Support',
+      location: 'Manila Hub / US Shift',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: 'Azure AD, Okta, Jira Service Management, Network Monitoring',
+    },
+    {
+      id: 'data-qa-lead',
+      title: 'Data Processing & QA Specialist',
+      department: 'Back-Office Operations',
+      location: 'Regional Hub',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: 'High-speed accurate indexing, OCR verification, database hygiene',
+    },
+    {
+      id: 'talent-acq-partner',
+      title: 'HR & Talent Acquisition Specialist',
+      department: 'HR & Recruitment',
+      location: 'Manila / Cebu Hub',
+      tag: '[CONFIRM OPEN ROLES]',
+      experience: 'Technical screening, ATS pipeline management, candidate onboarding',
+    },
+  ],
+};

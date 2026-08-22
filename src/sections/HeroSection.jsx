@@ -1,0 +1,222 @@
+import React, { useEffect, useRef } from 'react';
+import { Container } from '../components/ui/Container';
+import { Button } from '../components/ui/Button';
+import { ArrowRight, ChevronDown, Sparkles, Globe, Shield, Zap } from 'lucide-react';
+import gsap from 'gsap';
+
+export const HeroSection = () => {
+  const heroRef = useRef(null);
+  const eyebrowRef = useRef(null);
+  const headlineLine1Ref = useRef(null);
+  const headlineLine2Ref = useRef(null);
+  const headlineLine3Ref = useRef(null);
+  const subheadRef = useRef(null);
+  const ctaGroupRef = useRef(null);
+  const trustBarRef = useRef(null);
+  const scrollCueRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const ctx = gsap.context(() => {
+      if (prefersReducedMotion) {
+        gsap.set(
+          [
+            eyebrowRef.current,
+            headlineLine1Ref.current,
+            headlineLine2Ref.current,
+            headlineLine3Ref.current,
+            subheadRef.current,
+            ctaGroupRef.current,
+            trustBarRef.current,
+            scrollCueRef.current,
+          ],
+          { opacity: 1, y: 0 }
+        );
+        return;
+      }
+
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
+
+      tl.fromTo(
+        eyebrowRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7 }
+      );
+
+      tl.fromTo(
+        [headlineLine1Ref.current, headlineLine2Ref.current, headlineLine3Ref.current],
+        { opacity: 0, y: 45 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          stagger: 0.18,
+        },
+        '-=0.3'
+      );
+
+      tl.fromTo(
+        subheadRef.current,
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.4'
+      );
+
+      tl.fromTo(
+        ctaGroupRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7 },
+        '-=0.5'
+      );
+
+      tl.fromTo(
+        trustBarRef.current,
+        { opacity: 0, y: 15 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.3'
+      );
+
+      tl.fromTo(
+        scrollCueRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        '-=0.2'
+      );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section
+      id="home"
+      ref={heroRef}
+      className="relative min-h-[92vh] md:min-h-screen flex flex-col justify-between bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white pt-32 md:pt-40 pb-16 overflow-hidden"
+    >
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-navy-600/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-slate-500/10 rounded-full blur-3xl" />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, #FFFFFF 1px, transparent 0)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      </div>
+
+      <Container size="wide" className="relative z-10 my-auto">
+        <div className="max-w-4xl">
+          <div ref={eyebrowRef} className="flex flex-wrap items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-navy-800/80 border border-navy-700/80 text-xs font-semibold text-slate-200 backdrop-blur-sm">
+              <Sparkles className="w-3.5 h-3.5 text-slate-400" />
+              Sourcing. Solutions. Success.
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-display font-display font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+            <span ref={headlineLine1Ref} className="block">
+              High-Impact Global Teams
+            </span>
+            <span ref={headlineLine2Ref} className="block text-slate-200">
+              Engineered to Scale
+            </span>
+            <span
+              ref={headlineLine3Ref}
+              className="block bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent"
+            >
+              Your Core Operations.
+            </span>
+          </h1>
+
+          <p
+            ref={subheadRef}
+            className="text-lg sm:text-xl md:text-body-lg text-slate-300 font-normal leading-relaxed max-w-2xl mb-10"
+          >
+            Your Source Global (YSG) builds dedicated, enterprise-grade offshore teams across
+            Finance, Support, Back-Office, and Technical disciplines — delivering measurable operational
+            efficiency and seamless timezone alignment across the US, Australia, and the Philippines.
+          </p>
+
+          <div
+            ref={ctaGroupRef}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16"
+          >
+            <Button
+              href="#contact"
+              variant="primary"
+              size="lg"
+              icon={ArrowRight}
+              className="bg-white text-navy-950 hover:bg-slate-100 font-bold shadow-lg shadow-navy-950/50"
+            >
+              Request a Quote
+            </Button>
+            <Button
+              href="#services"
+              variant="secondary"
+              size="lg"
+              className="bg-navy-800/80 text-white border-navy-700 hover:bg-navy-700 hover:text-white backdrop-blur-sm"
+            >
+              Explore Our 7 Services
+            </Button>
+          </div>
+
+          <div
+            ref={trustBarRef}
+            className="pt-8 border-t border-navy-800/80 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-2xl text-xs"
+          >
+            <div className="space-y-1">
+              <div className="flex items-center gap-1.5 text-slate-400 font-mono uppercase tracking-wider">
+                <Globe className="w-3.5 h-3.5 text-slate-400" />
+                Footprint
+              </div>
+              <div className="font-bold text-white text-sm">US • Australia • PH</div>
+              <div className="text-[11px] text-slate-400">Strategic 24/7 delivery</div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex items-center gap-1.5 text-slate-400 font-mono uppercase tracking-wider">
+                <Zap className="w-3.5 h-3.5 text-slate-400" />
+                Service Lines
+              </div>
+              <div className="font-bold text-white text-sm">7 Core Disciplines</div>
+              <div className="text-[11px] text-slate-400">Finance, Tech, Support</div>
+            </div>
+
+            <div className="space-y-1 col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-1.5 text-slate-400 font-mono uppercase tracking-wider">
+                <Shield className="w-3.5 h-3.5 text-slate-400" />
+                Governance
+              </div>
+              <div className="font-bold text-white text-sm">Enterprise Security</div>
+              <div className="text-[11px] text-slate-400">[CONFIRM CERT]</div>
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      <div
+        ref={scrollCueRef}
+        className="relative z-10 mt-8 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full flex justify-between items-end text-slate-400"
+      >
+        <div className="hidden sm:block text-[11px] font-mono tracking-wider text-slate-500 uppercase">
+          Your Source Global &copy; {new Date().getFullYear()}
+        </div>
+
+        <a
+          href="#about"
+          className="flex items-center gap-3 text-xs font-mono tracking-[0.25em] text-slate-400 hover:text-white transition-colors duration-200 group ml-auto"
+          aria-label="Scroll to About Us section"
+        >
+          <span className="font-bold">SCROLL</span>
+          <div className="w-7 h-11 rounded-full border-2 border-slate-500 group-hover:border-white transition-colors flex items-start justify-center p-1.5">
+            <span className="w-1.5 h-2 bg-slate-300 group-hover:bg-white rounded-full animate-bounce mt-0.5 transition-colors" />
+          </div>
+        </a>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

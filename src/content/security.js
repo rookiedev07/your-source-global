@@ -1,0 +1,81 @@
+export const SECURITY_CONTENT = {
+  eyebrow: 'Data Governance & Infrastructure',
+  badge: '[CONFIRM CERT]',
+  title: 'Enterprise-Grade Security & Operational Continuity',
+  subtitle: 'Rigorous information security frameworks, redundant physical infrastructure, and zero-trust access protocols engineered to protect client assets.',
+  tiles: [
+    {
+      id: 'data-security',
+      title: 'Data Protection & Access Governance',
+      description: 'Role-based least-privilege access controls, multi-factor authentication (MFA), and secure encrypted data transmission protocols.',
+      icon: 'Shield',
+      tag: 'Access Protocol',
+      points: [
+        'Granular role-based credential management',
+        'Strict workstation zero-local-storage policies',
+        'Encrypted network channels & secure VPN tunnels',
+      ],
+    },
+    {
+      id: 'endpoint-infrastructure',
+      title: 'Facility & Endpoint Hardening',
+      description: 'Physical biometric facility access, centralized mobile device management (MDM), and monitored enterprise thin-client terminals.',
+      icon: 'Lock',
+      tag: 'Physical Defense',
+      points: [
+        'Biometric badge-restricted operational floors',
+        'Clean-desk policy and disabled USB mass storage',
+        'Centralized endpoint monitoring & policy enforcement',
+      ],
+    },
+    {
+      id: 'platform-integration',
+      title: 'Platform & Ecosystem Integration',
+      description: 'Seamless operation directly within your existing enterprise toolchains without proprietary software friction or vendor lock-in.',
+      icon: 'Layers',
+      tag: 'Ecosystem',
+      points: [
+        'Direct integration with major CRM, ERP, and ITSM stacks',
+        'Custom client software sandbox isolation',
+        'Support for single sign-on (SSO) and client-managed credentials',
+      ],
+    },
+    {
+      id: 'business-continuity',
+      title: 'Business Continuity & High Availability',
+      description: 'Engineered for uninterrupted service with redundant high-speed fiber backbones, on-site generator backups, and disaster recovery sites.',
+      icon: 'Server',
+      tag: '99.9% Uptime Goal',
+      points: [
+        'Dual tier-1 carrier fiber optic connectivity',
+        'Automated UPS battery backups + industrial diesel generators',
+        'Geographically distributed operational recovery hubs',
+      ],
+    },
+    {
+      id: 'audit-compliance',
+      title: 'Auditing & Process Verification',
+      description: 'Comprehensive audit trails, continuous quality inspection, and structured incident response procedures across every pod.',
+      icon: 'FileCheck',
+      tag: 'Governance',
+      points: [
+        'Continuous screen monitoring and audit logging',
+        'Standardized SLA compliance scoring',
+        'Mandatory quarterly information security refresher training',
+      ],
+    },
+    {
+      id: 'certification-status',
+      title: 'Industry Certifications & Compliance',
+      description: 'Our facilities operate under standardized security baselines aligned with global compliance criteria. Specific client audits supported on request.',
+      icon: 'Award',
+      tag: '[CONFIRM CERT]',
+      isCertTile: true,
+      points: [
+        '[CONFIRM CERT: SOC 2 Type II Compliance Status]',
+        '[CONFIRM CERT: ISO 27001 Information Security Management]',
+        '[CONFIRM CERT: HIPAA / GDPR Compliance Readiness]',
+      ],
+    },
+  ],
+};
