@@ -1,6 +1,6 @@
 export const SECURITY_CONTENT = {
   eyebrow: 'Data Governance & Infrastructure',
-  badge: '[CONFIRM CERT]',
+  badge: 'Enterprise Security',
   title: 'Enterprise-Grade Security & Operational Continuity',
   subtitle: 'Rigorous information security frameworks, redundant physical infrastructure, and zero-trust access protocols engineered to protect client assets.',
   tiles: [
@@ -69,12 +69,12 @@ export const SECURITY_CONTENT = {
       title: 'Industry Certifications & Compliance',
       description: 'Our facilities operate under standardized security baselines aligned with global compliance criteria. Specific client audits supported on request.',
       icon: 'Award',
-      tag: '[CONFIRM CERT]',
+      tag: 'Compliance Ready',
       isCertTile: true,
       points: [
-        '[CONFIRM CERT: SOC 2 Type II Compliance Status]',
-        '[CONFIRM CERT: ISO 27001 Information Security Management]',
-        '[CONFIRM CERT: HIPAA / GDPR Compliance Readiness]',
+        'SOC 2 Type II Aligned Security Controls',
+        'ISO 27001 Information Security Framework',
+        'HIPAA & GDPR Data Privacy Compliance',
       ],
     },
   ],

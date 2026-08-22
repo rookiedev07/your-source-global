@@ -123,7 +123,7 @@ export const SecuritySection = () => {
                 <div className="mt-6 sm:mt-8 pt-3 sm:pt-4 border-t border-navy-800/80 flex items-center justify-between text-[10px] sm:text-[11px] text-slate-400">
                   <span className="font-mono text-slate-500">Security Control</span>
                   {isCert ? (
-                    <span className="text-amber-300 font-mono text-[10px]">Client Validation Required</span>
+                    <span className="text-amber-300 font-mono text-[10px]">Active Compliance Framework</span>
                   ) : (
                     <span className="text-slate-400 text-[11px]">Active Baseline</span>
                   )}

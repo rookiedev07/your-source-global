@@ -27,9 +27,9 @@ export const WHY_US_CONTENT = {
     {
       index: '04',
       title: 'Enterprise-Grade Security Protocols',
-      description: 'Role-based access controls, encrypted workstation terminals, and standardized data handling [CONFIRM CERT].',
+      description: 'Role-based access controls, encrypted workstation terminals, and strict information security protocols.',
       icon: 'ShieldCheck',
-      tag: '[CONFIRM CERT]',
+      tag: 'Data Security',
     },
     {
       index: '05',

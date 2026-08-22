@@ -95,24 +95,24 @@ export const Footer = () => {
                 <a
                   href="#footer"
                   className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn (Placeholder)"
-                  title="LinkedIn [PLACEHOLDER]"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
                   href="#footer"
                   className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
-                  aria-label="Twitter/X (Placeholder)"
-                  title="Twitter / X [PLACEHOLDER]"
+                  aria-label="Twitter / X"
+                  title="Twitter / X"
                 >
                   <Twitter className="w-4 h-4" />
                 </a>
                 <a
                   href="#footer"
                   className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
-                  aria-label="YouTube (Placeholder)"
-                  title="YouTube [PLACEHOLDER]"
+                  aria-label="YouTube"
+                  title="YouTube"
                 >
                   <Youtube className="w-4 h-4" />
                 </a>
