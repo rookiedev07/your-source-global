@@ -47,7 +47,7 @@ export const Button = ({
 
   if (href) {
     return (
-      <a href={href} className={classes} {...props}>
+      <a href={href} className={classes} onClick={onClick} {...props}>
         {content}
       </a>
     );
