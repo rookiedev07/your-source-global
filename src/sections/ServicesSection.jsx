@@ -39,16 +39,15 @@ export const ServicesSection = ({ isIsolated = false }) => {
   const scrollTriggerRef = useRef(null);
 
   useEffect(() => {
-    const checkViewportAndMotion = () => {
-      const isMobile = window.innerWidth < 1024;
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      setIsMobileOrReduced(isMobile || prefersReduced);
+    const checkViewport = () => {
+      const isMobile = window.innerWidth < 768;
+      setIsMobileOrReduced(isMobile);
     };
 
-    checkViewportAndMotion();
-    window.addEventListener('resize', checkViewportAndMotion);
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
 
-    return () => window.removeEventListener('resize', checkViewportAndMotion);
+    return () => window.removeEventListener('resize', checkViewport);
   }, []);
 
   useEffect(() => {
