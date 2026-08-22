@@ -54,8 +54,8 @@ export const ServicesSection = ({ isIsolated = false }) => {
         } else {
           gsap.set(panel, {
             opacity: 0,
-            scale: 1.04,
-            y: 40,
+            scale: 1.03,
+            y: 30,
             zIndex: 20 + i,
             pointerEvents: 'none',
             force3D: true,
@@ -80,18 +80,20 @@ export const ServicesSection = ({ isIsolated = false }) => {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=380%',
+          end: '+=560%',
           pin: pinnedWrapperRef.current,
-          scrub: 0.35,
+          scrub: 0.25,
           anticipatePin: 1,
           fastScrollEnd: true,
           preventOverlaps: true,
           snap: {
-            snapTo: 1 / (totalServices - 1),
-            duration: { min: 0.15, max: 0.35 },
-            delay: 0.01,
-            ease: 'power3.out',
-            inertia: false,
+            snapTo: (value) => {
+              const step = 1 / (totalServices - 1);
+              return Math.round(value / step) * step;
+            },
+            duration: { min: 0.2, max: 0.4 },
+            delay: 0.15,
+            ease: 'power2.out',
           },
           onUpdate: (self) => {
             const raw = self.progress * (totalServices - 1);
@@ -106,27 +108,29 @@ export const ServicesSection = ({ isIsolated = false }) => {
       for (let i = 0; i < totalServices - 1; i++) {
         const currentPanel = panelsRef.current[i];
         const nextPanel = panelsRef.current[i + 1];
+        const transitionStart = i + 0.65;
+        const transitionDuration = 0.35;
 
         scrubTimeline.to(
           currentPanel,
           {
             opacity: 0,
-            scale: 0.93,
-            y: -30,
-            duration: 1,
-            ease: 'none',
+            scale: 0.94,
+            y: -24,
+            duration: transitionDuration,
+            ease: 'power2.inOut',
             pointerEvents: 'none',
             force3D: true,
           },
-          i
+          transitionStart
         );
 
         scrubTimeline.fromTo(
           nextPanel,
           {
             opacity: 0,
-            scale: 1.04,
-            y: 40,
+            scale: 1.03,
+            y: 30,
             pointerEvents: 'none',
             force3D: true,
           },
@@ -134,12 +138,12 @@ export const ServicesSection = ({ isIsolated = false }) => {
             opacity: 1,
             scale: 1,
             y: 0,
-            duration: 1,
-            ease: 'none',
+            duration: transitionDuration,
+            ease: 'power2.inOut',
             pointerEvents: 'auto',
             force3D: true,
           },
-          i
+          transitionStart
         );
       }
     }, containerRef);

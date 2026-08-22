@@ -4,8 +4,8 @@ export const ScrollReveal = ({
   children,
   className = '',
   delay = 0,
-  y = 32,
-  duration = 750,
+  y = 16,
+  duration = 450,
   direction = 'up',
   as: Component = 'div',
   ...props
@@ -31,8 +31,8 @@ export const ScrollReveal = ({
         }
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.02,
+        rootMargin: '0px 0px 60px 0px',
       }
     );
 

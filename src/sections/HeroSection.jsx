@@ -36,51 +36,51 @@ export const HeroSection = () => {
         return;
       }
 
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.05 });
 
       tl.fromTo(
         eyebrowRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7 }
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.45 }
       );
 
       tl.fromTo(
         [headlineLine1Ref.current, headlineLine2Ref.current, headlineLine3Ref.current],
-        { opacity: 0, y: 45 },
+        { opacity: 0, y: 22 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.9,
-          stagger: 0.18,
+          duration: 0.5,
+          stagger: 0.08,
         },
-        '-=0.3'
+        '-=0.25'
       );
 
       tl.fromTo(
         subheadRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        '-=0.4'
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.45 },
+        '-=0.3'
       );
 
       tl.fromTo(
         ctaGroupRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.5'
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.4 },
+        '-=0.3'
       );
 
       tl.fromTo(
         trustBarRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.3'
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4 },
+        '-=0.25'
       );
 
       tl.fromTo(
         scrollCueRef.current,
         { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.8 },
+        { opacity: 1, y: 0, duration: 0.4 },
         '-=0.2'
       );
     }, heroRef);
