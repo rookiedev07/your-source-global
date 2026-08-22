@@ -25,14 +25,14 @@ export const GlobalPresenceSection = () => {
           <span className="text-eyebrow uppercase tracking-widest font-bold px-3 py-1 bg-navy-50 text-navy-800 rounded-full border border-navy-100">
             {COMPANY.globalPresenceHeading.eyebrow}
           </span>
-          <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-amber-500/10 border border-amber-500/30 text-amber-700">
+          <span className="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-navy-900 text-white">
             {COMPANY.globalPresenceHeading.badge}
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-h2 font-display font-bold text-navy-900 tracking-tight leading-tight max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-navy-900 tracking-tight leading-tight max-w-3xl">
           {COMPANY.globalPresenceHeading.title}
         </h2>
-        <p className="mt-4 text-base md:text-body-lg text-slate-600 max-w-2xl">
+        <p className="mt-4 text-sm sm:text-base md:text-body-lg text-slate-600 max-w-2xl">
           {COMPANY.globalPresenceHeading.subtitle}
         </p>
       </ScrollReveal>
@@ -59,21 +59,21 @@ export const GlobalPresenceSection = () => {
                 Global Operations Network
               </h3>
               <p className="text-xs text-slate-400">
-                Synchronized 24/7/365 coverage across North America, APAC, and Southeast Asia.
+                Synchronized 24/7/365 coverage across UAE Headquarters, North America, and Philippines Delivery Hubs.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-xs font-mono">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+              UAE Global HQ
+            </span>
             <span className="flex items-center gap-1.5 text-slate-300">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
               US Hub
             </span>
             <span className="flex items-center gap-1.5 text-slate-300">
               <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-              Australia Hub
-            </span>
-            <span className="flex items-center gap-1.5 text-slate-300">
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
               Philippines 24/7 Hub
             </span>
           </div>
@@ -92,10 +92,9 @@ export const GlobalPresenceSection = () => {
             <path d="M470 160 Q 550 160 540 270 Q 480 320 450 230 Z" opacity="0.3" />
             <path d="M570 60 Q 750 50 820 140 Q 750 220 620 180 Z" opacity="0.4" />
             <path d="M780 280 Q 880 270 890 350 Q 810 390 770 330 Z" opacity="0.5" />
-            <circle cx="785" cy="205" r="9" opacity="0.8" fill="#F59E0B" />
 
             <path
-              d="M 230 140 Q 500 80 785 205"
+              d="M 230 140 Q 400 120 595 190"
               fill="none"
               stroke="#64748B"
               strokeWidth="1.5"
@@ -103,45 +102,37 @@ export const GlobalPresenceSection = () => {
               opacity="0.6"
             />
             <path
-              d="M 830 320 Q 810 260 785 205"
+              d="M 595 190 Q 690 170 785 205"
               fill="none"
               stroke="#64748B"
               strokeWidth="1.5"
               strokeDasharray="4 4"
               opacity="0.6"
-            />
-            <path
-              d="M 230 140 Q 550 350 830 320"
-              fill="none"
-              stroke="#64748B"
-              strokeWidth="1"
-              strokeDasharray="3 3"
-              opacity="0.3"
             />
 
             <g transform="translate(230, 140)">
               <circle r="16" fill="#34D399" fillOpacity="0.2" className="animate-ping" />
               <circle r="7" fill="#10B981" />
               <circle r="3" fill="#FFFFFF" />
-              <text x="12" y="4" fill="#FFFFFF" fontSize="13" fontWeight="bold" fontFamily="Manrope, sans-serif">
+              <text x="12" y="4" fill="#FFFFFF" fontSize="12" fontWeight="bold" fontFamily="Manrope, sans-serif">
                 US (Strategy)
               </text>
             </g>
 
-            <g transform="translate(830, 320)">
-              <circle r="16" fill="#22D3EE" fillOpacity="0.2" className="animate-ping" />
-              <circle r="7" fill="#06B6D4" />
+            <g transform="translate(595, 190)">
+              <circle r="16" fill="#F59E0B" fillOpacity="0.25" className="animate-ping" />
+              <circle r="7" fill="#F59E0B" />
               <circle r="3" fill="#FFFFFF" />
-              <text x="12" y="4" fill="#FFFFFF" fontSize="13" fontWeight="bold" fontFamily="Manrope, sans-serif">
-                Australia (APAC)
+              <text x="12" y="4" fill="#FCD34D" fontSize="12" fontWeight="bold" fontFamily="Manrope, sans-serif">
+                UAE (Global HQ)
               </text>
             </g>
 
             <g transform="translate(785, 205)">
-              <circle r="20" fill="#F59E0B" fillOpacity="0.25" className="animate-ping" />
-              <circle r="8" fill="#F59E0B" />
-              <circle r="3.5" fill="#FFFFFF" />
-              <text x="14" y="4" fill="#FCD34D" fontSize="13" fontWeight="bold" fontFamily="Manrope, sans-serif">
+              <circle r="18" fill="#22D3EE" fillOpacity="0.25" className="animate-ping" />
+              <circle r="7.5" fill="#06B6D4" />
+              <circle r="3" fill="#FFFFFF" />
+              <text x="14" y="4" fill="#67E8F9" fontSize="12" fontWeight="bold" fontFamily="Manrope, sans-serif">
                 Philippines (24/7 Operations)
               </text>
             </g>
@@ -149,12 +140,12 @@ export const GlobalPresenceSection = () => {
         </div>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
         {COMPANY.presence.map((loc, idx) => (
           <ScrollReveal
             key={loc.country}
             delay={idx * 120}
-            className="p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+            className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between gap-2 mb-4">
@@ -162,17 +153,17 @@ export const GlobalPresenceSection = () => {
                   <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-navy-900 text-white">
                     {loc.regionCode}
                   </span>
-                  <h3 className="text-xl font-display font-bold text-navy-900">
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-navy-900">
                     {loc.country}
                   </h3>
                 </div>
-                <MapPin className="w-4 h-4 text-slate-400" />
+                <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
               </div>
 
               <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                 {loc.city}
               </div>
-              <div className="text-sm font-bold text-navy-800 mb-3 pb-3 border-b border-slate-100">
+              <div className="text-xs sm:text-sm font-bold text-navy-800 mb-3 pb-3 border-b border-slate-100">
                 {loc.role}
               </div>
 
@@ -206,15 +197,19 @@ export const GlobalPresenceSection = () => {
             <div className="pt-4 border-t border-slate-100 space-y-2 text-xs font-mono text-slate-500">
               <div className="flex items-start gap-2">
                 <Building className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
-                <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold">{loc.address}</span>
+                <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold leading-relaxed">
+                  {loc.address}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold">{loc.phone}</span>
+                <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold">
+                  {loc.phone}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                <span className="text-slate-600">{loc.email}</span>
+                <span className="text-slate-600 truncate">{loc.email}</span>
               </div>
             </div>
           </ScrollReveal>

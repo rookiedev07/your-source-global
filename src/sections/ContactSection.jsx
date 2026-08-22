@@ -82,18 +82,18 @@ export const ContactSection = () => {
             Initiate Partnership
           </span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-h2 font-display font-bold text-navy-900 tracking-tight leading-tight max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-h2 font-display font-bold text-navy-900 tracking-tight leading-tight max-w-3xl">
           Request a Custom Staffing &amp; BPO Proposal
         </h2>
-        <p className="mt-4 text-base md:text-body-lg text-slate-600 max-w-2xl">
+        <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-body-lg text-slate-600 max-w-2xl">
           Connect directly with our corporate solutions team. We'll design a dedicated pod architecture aligned with your operational targets and budget.
         </p>
       </ScrollReveal>
 
-      <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
         
         <ScrollReveal delay={100} className="lg:col-span-5 space-y-6">
-          <div className="p-8 rounded-3xl bg-navy-950 text-white border border-navy-800 shadow-xl space-y-6">
+          <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-navy-950 text-white border border-navy-800 shadow-xl space-y-6">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold block mb-1">
                 Executive Coordination
@@ -111,7 +111,9 @@ export const ContactSection = () => {
                 <Building className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-white block">Global Headquarters:</span>
-                  <span className="text-slate-300 font-mono">[CONFIRM ADDRESS — US &amp; Philippines Hubs]</span>
+                  <span className="text-slate-300 font-mono text-[11px] leading-relaxed block mt-0.5">
+                    FDRK7243 Compass Building, Al Shohada Road, Al Hamra Industrial Zone-FZ, Ras Al Khaimah, UAE
+                  </span>
                 </div>
               </div>
 
@@ -127,7 +129,7 @@ export const ContactSection = () => {
                 <Phone className="w-4 h-4 text-slate-400 shrink-0" />
                 <div>
                   <span className="font-bold text-white block">Client Advisory Line:</span>
-                  <span className="text-slate-300 font-mono">[CONFIRM PHONE]</span>
+                  <span className="text-slate-300 font-mono">+971 (0) 7 204 1111</span>
                 </div>
               </div>
 
@@ -154,7 +156,7 @@ export const ContactSection = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={150} className="lg:col-span-7">
-          <div className="p-8 md:p-10 rounded-3xl bg-white border border-slate-200 shadow-md">
+          <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md">
             
             {submittedData ? (
               <div className="py-8 text-center space-y-6 animate-fadeIn">
