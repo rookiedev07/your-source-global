@@ -31,9 +31,11 @@ export const AboutSection = () => {
         <ScrollReveal delay={100} className="lg:col-span-6 space-y-6">
           <div className="prose prose-slate max-w-none space-y-3.5 text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
             {ABOUT_CONTENT.paragraphs.map((p, idx) => (
-              <p key={idx} className="border-l-2 border-slate-200 pl-4 py-0.5">
-                {p}
-              </p>
+              <p 
+                key={idx} 
+                className="border-l-2 border-slate-200 pl-4 py-0.5" 
+                dangerouslySetInnerHTML={{ __html: p }} 
+              />
             ))}
           </div>
 

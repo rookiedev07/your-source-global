@@ -74,10 +74,10 @@ export const Nav = () => {
             aria-label="Your Source Global Home"
           >
             <img
-              src="/brand/logo.svg"
+              src="/brand/logo.png"
               alt="Your Source Global Logo"
               className={`h-9 md:h-10 w-auto object-contain transition-all duration-300 ${
-                !isScrolled ? 'brightness-0 invert drop-shadow' : ''
+                !isScrolled ? 'drop-shadow' : ''
               }`}
             />
           </a>

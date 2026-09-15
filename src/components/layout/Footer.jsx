@@ -79,9 +79,9 @@ export const Footer = () => {
             <div className="lg:col-span-4 space-y-5">
               <div className="flex items-center gap-3">
                 <img
-                  src="/brand/logo.svg"
+                  src="/brand/logo.png"
                   alt="Your Source Global Logo"
-                  className="h-10 w-auto brightness-0 invert"
+                  className="h-10 w-auto bg-white/10 p-1 rounded-md"
                 />
               </div>
               <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
