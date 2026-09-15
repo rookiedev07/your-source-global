@@ -91,7 +91,7 @@ export const ContactSection = () => {
       </ScrollReveal>
 
       <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
-        
+
         <ScrollReveal delay={100} className="lg:col-span-5 space-y-6">
           <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-navy-950 text-white border border-navy-800 shadow-xl space-y-6">
             <div>
@@ -121,7 +121,7 @@ export const ContactSection = () => {
                 <Mail className="w-4 h-4 text-slate-400 shrink-0" />
                 <div>
                   <span className="font-bold text-white block">Direct Inquiries:</span>
-                  <span className="text-slate-300 font-mono">solutions@yoursourceglobal.com</span>
+                  <span className="text-slate-300 font-mono">inquiry@yoursource.global</span>
                 </div>
               </div>
 
@@ -157,7 +157,7 @@ export const ContactSection = () => {
 
         <ScrollReveal delay={150} className="lg:col-span-7">
           <div className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md">
-            
+
             {submittedData ? (
               <div className="py-8 text-center space-y-6 animate-fadeIn">
                 <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto shadow-sm">
@@ -230,11 +230,10 @@ export const ContactSection = () => {
                       type="text"
                       placeholder="e.g. Sarah Jenkins"
                       {...register('name')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${
-                        errors.name
+                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.name
                           ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                           : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                      }`}
+                        }`}
                     />
                     {errors.name && (
                       <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
@@ -253,11 +252,10 @@ export const ContactSection = () => {
                       type="text"
                       placeholder="e.g. Apex Global Solutions"
                       {...register('company')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${
-                        errors.company
+                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.company
                           ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                           : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                      }`}
+                        }`}
                     />
                     {errors.company && (
                       <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
@@ -278,11 +276,10 @@ export const ContactSection = () => {
                       type="email"
                       placeholder="sarah@company.com"
                       {...register('email')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${
-                        errors.email
+                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.email
                           ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                           : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                      }`}
+                        }`}
                     />
                     {errors.email && (
                       <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
@@ -301,11 +298,10 @@ export const ContactSection = () => {
                       type="tel"
                       placeholder="+1 (555) 000-0000"
                       {...register('phone')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${
-                        errors.phone
+                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.phone
                           ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                           : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                      }`}
+                        }`}
                     />
                     {errors.phone && (
                       <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
@@ -323,11 +319,10 @@ export const ContactSection = () => {
                   <select
                     id="service"
                     {...register('service')}
-                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 bg-white ${
-                      errors.service
+                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 bg-white ${errors.service
                         ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                         : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                    }`}
+                      }`}
                   >
                     <option value="">Select one of our 7 core disciplines...</option>
                     {SERVICE_OPTIONS.map((opt) => (
@@ -353,11 +348,10 @@ export const ContactSection = () => {
                     rows={4}
                     placeholder="Briefly describe your team size, expected hours/timezone, target start date, and software toolchains..."
                     {...register('message')}
-                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${
-                      errors.message
+                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.message
                         ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
                         : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                    }`}
+                      }`}
                   />
                   {errors.message && (
                     <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">

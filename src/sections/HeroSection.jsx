@@ -1,97 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Container } from '../components/ui/Container';
 import { Button } from '../components/ui/Button';
 import { ArrowRight, Sparkles, Globe, Shield, Zap } from 'lucide-react';
-import gsap from 'gsap';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
 
 export const HeroSection = () => {
-  const heroRef = useRef(null);
-  const eyebrowRef = useRef(null);
-  const headlineLine1Ref = useRef(null);
-  const headlineLine2Ref = useRef(null);
-  const headlineLine3Ref = useRef(null);
-  const subheadRef = useRef(null);
-  const ctaGroupRef = useRef(null);
-  const trustBarRef = useRef(null);
-  const scrollCueRef = useRef(null);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const ctx = gsap.context(() => {
-      if (prefersReducedMotion) {
-        gsap.set(
-          [
-            eyebrowRef.current,
-            headlineLine1Ref.current,
-            headlineLine2Ref.current,
-            headlineLine3Ref.current,
-            subheadRef.current,
-            ctaGroupRef.current,
-            trustBarRef.current,
-            scrollCueRef.current,
-          ],
-          { opacity: 1, y: 0 }
-        );
-        return;
-      }
-
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.05 });
-
-      tl.fromTo(
-        eyebrowRef.current,
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.45 }
-      );
-
-      tl.fromTo(
-        [headlineLine1Ref.current, headlineLine2Ref.current, headlineLine3Ref.current],
-        { opacity: 0, y: 22 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.08,
-        },
-        '-=0.25'
-      );
-
-      tl.fromTo(
-        subheadRef.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.45 },
-        '-=0.3'
-      );
-
-      tl.fromTo(
-        ctaGroupRef.current,
-        { opacity: 0, y: 14 },
-        { opacity: 1, y: 0, duration: 0.4 },
-        '-=0.3'
-      );
-
-      tl.fromTo(
-        trustBarRef.current,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: 0.4 },
-        '-=0.25'
-      );
-
-      tl.fromTo(
-        scrollCueRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0, duration: 0.4 },
-        '-=0.2'
-      );
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="home"
-      ref={heroRef}
       className="relative min-h-[92vh] md:min-h-screen flex flex-col justify-between bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white pt-28 sm:pt-32 md:pt-40 pb-16 overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -107,40 +46,41 @@ export const HeroSection = () => {
       </div>
 
       <Container size="wide" className="relative z-10 my-auto">
-        <div className="max-w-4xl">
-          <div ref={eyebrowRef} className="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
+        <motion.div
+          className="max-w-4xl"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 mb-4 sm:mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-navy-800/80 border border-navy-700/80 text-xs font-semibold text-slate-200 backdrop-blur-sm">
               <Sparkles className="w-3.5 h-3.5 text-slate-400" />
               Sourcing. Solutions. Success.
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white leading-[1.1] mb-5 sm:mb-6">
-            <span ref={headlineLine1Ref} className="block">
-              High-Impact Global Teams
-            </span>
-            <span ref={headlineLine2Ref} className="block text-slate-200">
-              Engineered to Scale
-            </span>
-            <span
-              ref={headlineLine3Ref}
-              className="block bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent"
-            >
+          <motion.h1
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white leading-[1.1] mb-5 sm:mb-6"
+          >
+            <span className="block">High-Impact Global Teams</span>
+            <span className="block text-slate-200">Engineered to Scale</span>
+            <span className="block bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               Your Core Operations.
             </span>
-          </h1>
+          </motion.h1>
 
-          <p
-            ref={subheadRef}
+          <motion.p
+            variants={itemVariants}
             className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mb-8 sm:mb-10"
           >
             Your Source Global (YSG) builds dedicated, enterprise-grade offshore teams across
             Finance, Support, Back-Office, and Technical disciplines — delivering measurable operational
             efficiency and seamless timezone alignment across the US, UAE, and the Philippines.
-          </p>
+          </motion.p>
 
-          <div
-            ref={ctaGroupRef}
+          <motion.div
+            variants={itemVariants}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-12 sm:mb-16"
           >
             <Button
@@ -160,10 +100,10 @@ export const HeroSection = () => {
             >
               Explore Our 7 Services
             </Button>
-          </div>
+          </motion.div>
 
-          <div
-            ref={trustBarRef}
+          <motion.div
+            variants={itemVariants}
             className="pt-6 sm:pt-8 border-t border-navy-800/80 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-2xl text-xs"
           >
             <div className="space-y-1">
@@ -192,12 +132,14 @@ export const HeroSection = () => {
               <div className="font-bold text-white text-xs sm:text-sm">Enterprise Security</div>
               <div className="text-[10px] sm:text-[11px] text-slate-400">NDA &amp; IP Protection</div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Container>
 
-      <div
-        ref={scrollCueRef}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
         className="relative z-10 mt-6 sm:mt-8 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto w-full flex justify-between items-end text-slate-400"
       >
         <div className="hidden sm:block text-[11px] font-mono tracking-wider text-slate-500 uppercase">
@@ -214,7 +156,7 @@ export const HeroSection = () => {
             <span className="w-1.5 h-2 bg-slate-300 group-hover:bg-white rounded-full animate-bounce mt-0.5 transition-colors" />
           </div>
         </a>
-      </div>
+      </motion.div>
     </section>
   );
 };

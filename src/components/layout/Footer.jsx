@@ -73,28 +73,28 @@ export const Footer = () => {
         </Container>
       </div>
 
-      <div className="py-16 md:py-20">
+      <div className="py-16 md:py-20 bg-white text-slate-600 border-b border-slate-200">
         <Container size="wide">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-navy-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
             <div className="lg:col-span-4 space-y-5">
               <div className="flex items-center gap-3">
                 <img
                   src="/brand/logo.png"
                   alt="Your Source Global Logo"
-                  className="h-10 w-auto bg-white/10 p-1 rounded-md"
+                  className="h-10 w-auto"
                 />
               </div>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-sm leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-sm leading-relaxed">
                 Your Source Global (YSG) is an enterprise BPO and strategic global staffing partner delivering high-performing dedicated pods across Finance, Customer Care, IT, and Operations.
               </p>
-              <p className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
+              <p className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">
                 Sourcing. Solutions. Success.
               </p>
 
               <div className="flex items-center gap-3 pt-2">
                 <a
                   href="#footer"
-                  className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
+                  className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-navy-900 hover:bg-slate-200 flex items-center justify-center transition-colors"
                   aria-label="LinkedIn"
                   title="LinkedIn"
                 >
@@ -102,7 +102,7 @@ export const Footer = () => {
                 </a>
                 <a
                   href="#footer"
-                  className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
+                  className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-navy-900 hover:bg-slate-200 flex items-center justify-center transition-colors"
                   aria-label="Twitter / X"
                   title="Twitter / X"
                 >
@@ -110,7 +110,7 @@ export const Footer = () => {
                 </a>
                 <a
                   href="#footer"
-                  className="w-8 h-8 rounded-lg bg-navy-900 border border-navy-800 text-slate-400 hover:text-white hover:border-slate-600 flex items-center justify-center transition-colors"
+                  className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:text-navy-900 hover:bg-slate-200 flex items-center justify-center transition-colors"
                   aria-label="YouTube"
                   title="YouTube"
                 >
@@ -120,7 +120,7 @@ export const Footer = () => {
             </div>
 
             <div className="lg:col-span-3 space-y-3">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white mb-4">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-navy-900 mb-4">
                 The 7 Core Services
               </h4>
               <ul className="space-y-2 text-xs">
@@ -128,9 +128,9 @@ export const Footer = () => {
                   <li key={s.id}>
                     <a
                       href="#services"
-                      className="text-slate-300 hover:text-white transition-colors flex items-center gap-2"
+                      className="text-slate-600 hover:text-navy-900 transition-colors flex items-center gap-2"
                     >
-                      <span className="font-mono text-slate-500 text-[10px]">{s.number}</span>
+                      <span className="font-mono text-slate-400 text-[10px]">{s.number}</span>
                       <span>{s.title}</span>
                     </a>
                   </li>
@@ -139,7 +139,7 @@ export const Footer = () => {
             </div>
 
             <div className="lg:col-span-2 space-y-3">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white mb-4">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-navy-900 mb-4">
                 Sitemap Index
               </h4>
               <ul className="space-y-2 text-xs">
@@ -147,7 +147,7 @@ export const Footer = () => {
                   <li key={idx}>
                     <a
                       href={item.href}
-                      className="text-slate-300 hover:text-white transition-colors"
+                      className="text-slate-600 hover:text-navy-900 transition-colors"
                     >
                       {item.label}
                     </a>
@@ -157,41 +157,47 @@ export const Footer = () => {
             </div>
 
             <div className="lg:col-span-3 space-y-4">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white mb-4">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-navy-900 mb-4">
                 Global Office Hubs
               </h4>
               <div className="space-y-3 text-xs">
                 {COMPANY.presence.map((hub) => (
-                  <div key={hub.country} className="p-3 rounded-xl bg-navy-900/60 border border-navy-800">
-                    <div className="flex items-center justify-between font-bold text-white mb-1">
+                  <div key={hub.country} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
+                    <div className="flex items-center justify-between font-bold text-navy-900 mb-1">
                       <span>{hub.country}</span>
-                      <span className="text-[10px] font-mono text-slate-400">{hub.regionCode}</span>
+                      <span className="text-[10px] font-mono text-slate-500 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                        {hub.regionCode}
+                      </span>
                     </div>
-                    <p className="text-[11px] text-slate-300 font-mono mb-1">{hub.address}</p>
-                    <p className="text-[11px] text-slate-400 font-mono">{hub.phone}</p>
+                    <p className="text-[11px] text-slate-600 font-mono mb-1">{hub.address}</p>
+                    <p className="text-[11px] text-slate-500 font-mono">{hub.phone}</p>
                   </div>
                 ))}
               </div>
             </div>
 
           </div>
+        </Container>
+      </div>
 
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+      <div className="bg-white py-6 text-xs text-slate-600">
+        <Container size="wide">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>
               &copy; {new Date().getFullYear()} Your Source Global (YSG). All rights reserved. Sourcing. Solutions. Success.
             </p>
 
             <div className="flex flex-wrap items-center gap-6">
-              <a href="#security" className="hover:text-white transition-colors">
+              <a href="#security" className="hover:text-navy-900 transition-colors">
                 Security &amp; Data Governance
               </a>
-              <a href="#contact" className="hover:text-white transition-colors">
+              <a href="#contact" className="hover:text-navy-900 transition-colors">
                 Confidentiality Notice
               </a>
               <button
                 type="button"
                 onClick={scrollToTop}
-                className="flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors ml-2 font-mono text-[11px]"
+                className="flex items-center gap-1.5 text-slate-700 hover:text-navy-900 transition-colors ml-2 font-mono text-[11px]"
               >
                 <span>Back to Top</span>
                 <ArrowUp className="w-3.5 h-3.5" />

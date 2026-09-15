@@ -5,6 +5,7 @@ import QuickLeadCtaBanner from './components/cta/QuickLeadCtaBanner';
 
 import HeroSection from './sections/HeroSection';
 import AboutSection from './sections/AboutSection';
+import LeadershipSection from './sections/LeadershipSection';
 import ServicesSection from './sections/ServicesSection';
 import WhyUsSection from './sections/WhyUsSection';
 import IndustriesSection from './sections/IndustriesSection';
@@ -45,6 +46,7 @@ export function App() {
         <div className="w-full flex flex-col">
           <HeroSection />
           <AboutSection />
+          <LeadershipSection />
           <ServicesSection />
           
           <QuickLeadCtaBanner />

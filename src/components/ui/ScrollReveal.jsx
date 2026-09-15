@@ -1,64 +1,36 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export const ScrollReveal = ({
   children,
   className = '',
   delay = 0,
-  y = 16,
-  duration = 450,
+  y = 20,
+  duration = 0.55,
   direction = 'up',
-  as: Component = 'div',
+  as = 'div',
   ...props
 }) => {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      {
-        threshold: 0.02,
-        rootMargin: '0px 0px 60px 0px',
-      }
-    );
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const getTransform = () => {
-    if (isVisible) return 'none';
-    if (direction === 'up') return `translate3d(0, ${y}px, 0)`;
-    if (direction === 'down') return `translate3d(0, -${y}px, 0)`;
-    if (direction === 'left') return `translate3d(${y}px, 0, 0)`;
-    if (direction === 'right') return `translate3d(-${y}px, 0, 0)`;
-    return `translate3d(0, ${y}px, 0)`;
+  const getInitial = () => {
+    if (direction === 'up') return { opacity: 0, y };
+    if (direction === 'down') return { opacity: 0, y: -y };
+    if (direction === 'left') return { opacity: 0, x: y };
+    if (direction === 'right') return { opacity: 0, x: -y };
+    return { opacity: 0, y };
   };
+
+  const Component = motion[as] || motion.div;
 
   return (
     <Component
-      ref={ref}
       className={className}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: getTransform(),
-        transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: isVisible ? 'auto' : 'opacity, transform',
+      initial={getInitial()}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{
+        duration,
+        delay: delay / 1000,
+        ease: [0.16, 1, 0.3, 1],
       }}
       {...props}
     >

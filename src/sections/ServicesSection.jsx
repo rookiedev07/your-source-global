@@ -15,8 +15,9 @@ import {
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const ICON_MAP = {
   Calculator: Calculator,
@@ -35,6 +36,7 @@ export const ServicesSection = ({ isIsolated = false }) => {
   const bgParallaxRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const scrollTriggerRef = useRef(null);
+  const isJumpingRef = useRef(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -82,20 +84,18 @@ export const ServicesSection = ({ isIsolated = false }) => {
           start: 'top top',
           end: '+=560%',
           pin: pinnedWrapperRef.current,
-          scrub: 0.25,
+          scrub: 1,
           anticipatePin: 1,
           fastScrollEnd: true,
           preventOverlaps: true,
           snap: {
-            snapTo: (value) => {
-              const step = 1 / (totalServices - 1);
-              return Math.round(value / step) * step;
-            },
-            duration: { min: 0.2, max: 0.4 },
-            delay: 0.15,
-            ease: 'power2.out',
+            snapTo: 'labels',
+            duration: { min: 0.3, max: 0.6 },
+            delay: 0.2,
+            ease: 'power2.inOut',
           },
           onUpdate: (self) => {
+            if (isJumpingRef.current) return;
             const raw = self.progress * (totalServices - 1);
             const currentStep = Math.min(totalServices - 1, Math.max(0, Math.round(raw)));
             setActiveIdx(currentStep);
@@ -110,6 +110,9 @@ export const ServicesSection = ({ isIsolated = false }) => {
         const nextPanel = panelsRef.current[i + 1];
         const transitionStart = i + 0.65;
         const transitionDuration = 0.35;
+
+        // Label at the start of each step for snap='labels'
+        scrubTimeline.addLabel(`step-${i}`, i);
 
         scrubTimeline.to(
           currentPanel,
@@ -146,6 +149,9 @@ export const ServicesSection = ({ isIsolated = false }) => {
           transitionStart
         );
       }
+
+      // Final label so the last panel has a snap target
+      scrubTimeline.addLabel(`step-${totalServices - 1}`, totalServices - 1);
     }, containerRef);
 
     return () => {
@@ -164,9 +170,19 @@ export const ServicesSection = ({ isIsolated = false }) => {
     const targetProgress = targetIndex / totalSteps;
     const scrollTarget = st.start + targetProgress * (st.end - st.start);
 
-    window.scrollTo({
-      top: scrollTarget + 1,
-      behavior: 'smooth',
+    // Update UI immediately for instant visual feedback
+    setActiveIdx(targetIndex);
+    isJumpingRef.current = true;
+
+    // Use GSAP ScrollToPlugin — native smooth scroll conflicts with GSAP scrub
+    // and causes the browser to overshoot to the end of the pinned section
+    gsap.to(window, {
+      scrollTo: { y: scrollTarget, autoKill: false },
+      duration: 0.6,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        isJumpingRef.current = false;
+      },
     });
   };
 
