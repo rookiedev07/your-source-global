@@ -219,6 +219,9 @@ export const ServicesSection = ({ isIsolated = false }) => {
               <span className="text-eyebrow uppercase tracking-widest font-bold px-3 py-1 bg-navy-800 text-slate-300 rounded-full border border-navy-700">
                 {SERVICES_SECTION_HEADING.eyebrow}
               </span>
+              <h2 className="sr-only">
+                {SERVICES_SECTION_HEADING.title} - {SERVICES_SECTION_HEADING.subtitle}
+              </h2>
             </div>
 
             <div className="flex items-center gap-3 text-xs font-mono text-slate-400">
