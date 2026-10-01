@@ -139,7 +139,7 @@ export const CareersSection = () => {
 
             <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
               <a
-                href="mailto:careers@yoursourceglobal.com?subject=Talent%20Inquiry%20-%20YSG"
+                href="mailto:careers@yoursource.global?subject=Talent%20Inquiry%20-%20YSG"
                 className="text-xs font-bold text-navy-800 hover:text-navy-950 flex items-center gap-1.5 transition-colors"
               >
                 <span>Submit Profile / Resume</span>
@@ -161,7 +161,7 @@ export const CareersSection = () => {
         </div>
         <div className="flex flex-wrap gap-3 shrink-0 w-full md:w-auto">
           <Button
-            href="mailto:careers@yoursourceglobal.com?subject=General%20Talent%20Application%20-%20YSG"
+            href="mailto:careers@yoursource.global?subject=General%20Talent%20Application%20-%20YSG"
             variant="secondary"
             size="md"
             icon={Mail}

@@ -6,7 +6,6 @@ import {
   Globe2,
   MapPin,
   Clock,
-  Phone,
   Mail,
   Building,
   CheckCircle2,
@@ -212,12 +211,6 @@ export const GlobalPresenceSection = () => {
                     <Building className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
                     <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold leading-relaxed">
                       {loc.address}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-semibold">
-                      {loc.phone}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">

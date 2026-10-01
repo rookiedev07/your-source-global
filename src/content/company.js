@@ -22,7 +22,6 @@ export const COMPANY = {
       timezone: 'GST (UTC+4) Global Alignment',
       coverage: 'Executive Management & Client Inquiries',
       address: 'FDRK7243 Compass Building, Al Shohada Road, Al Hamra Industrial Zone-FZ, Ras Al Khaimah, UAE',
-      phone: '+971 (0) 7 204 1111',
       email: 'inquiry@yoursource.global',
       coordinates: { x: 55, y: 35 },
       capabilities: ['Corporate Governance', 'Global Operations Oversight', 'International Contracts & Compliance'],

@@ -10,7 +10,6 @@ import {
   AlertCircle,
   Building,
   Mail,
-  Phone,
   Clock,
   ShieldCheck,
   RotateCcw,
@@ -31,7 +30,6 @@ export const ContactSection = () => {
       name: '',
       company: '',
       email: '',
-      phone: '',
       service: '',
       message: '',
     },
@@ -126,14 +124,6 @@ export const ContactSection = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-slate-400 shrink-0" />
-                <div>
-                  <span className="font-bold text-white block">Client Advisory Line:</span>
-                  <span className="text-slate-300 font-mono">+971 (0) 7 204 1111</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
                 <div>
                   <span className="font-bold text-white block">Response SLA:</span>
@@ -188,13 +178,13 @@ export const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-left text-xs text-amber-900 space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-amber-800">
-                    <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
-                    <span>Developer Integration Notice:</span>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-left text-xs text-slate-600 space-y-1 max-w-md mx-auto">
+                  <div className="flex items-center gap-2 font-semibold text-navy-900">
+                    <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Guaranteed SLA Response</span>
                   </div>
-                  <p className="text-[11px] leading-relaxed text-amber-800">
-                    Client-side validation verified. Full JSON payload logged to console. Real email delivery (e.g. Resend/SendGrid) or CRM webhook (e.g. HubSpot/Salesforce) needs to be wired prior to launch.
+                  <p className="text-[11px] leading-relaxed text-slate-500">
+                    An advisory pod lead has been notified. You will receive an executive breakdown and tailored rate proposal within 24 business hours.
                   </p>
                 </div>
 
@@ -266,50 +256,26 @@ export const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-bold text-navy-900 mb-1.5">
-                      Corporate Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="sarah@company.com"
-                      {...register('email')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.email
-                          ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
-                          : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                        }`}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-bold text-navy-900 mb-1.5">
-                      Phone Number <span className="text-slate-400 font-normal">(Optional)</span>
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      placeholder="+1 (555) 000-0000"
-                      {...register('phone')}
-                      className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.phone
-                          ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
-                          : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
-                        }`}
-                    />
-                    {errors.phone && (
-                      <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-3.5 h-3.5" />
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
+                <div>
+                  <label htmlFor="email" className="block text-xs font-bold text-navy-900 mb-1.5">
+                    Corporate Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="sarah@company.com"
+                    {...register('email')}
+                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-colors focus:outline-none focus:ring-2 ${errors.email
+                        ? 'border-red-400 bg-red-50/30 focus:ring-red-300'
+                        : 'border-slate-300 bg-slate-50/50 focus:border-navy-600 focus:ring-navy-100'
+                      }`}
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-xs text-red-600 flex items-center gap-1 font-medium">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div>

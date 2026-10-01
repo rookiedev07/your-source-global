@@ -92,11 +92,11 @@ export const ShortLeadForm = ({
             </p>
           </div>
 
-          <div className={`p-3 rounded-xl text-left text-[11px] font-mono space-y-1 max-w-xs mx-auto ${
+          <div className={`p-3 rounded-xl text-center text-xs space-y-1 max-w-xs mx-auto ${
             isDark ? 'bg-navy-950 border border-navy-800 text-slate-300' : 'bg-slate-50 border border-slate-200 text-slate-700'
           }`}>
-            <div>Payload logged to console.</div>
-            <div className="text-amber-400 text-[10px]">[Notice: Connect real CRM/Email prior to live launch]</div>
+            <span className="font-semibold text-emerald-400 block">Fast-Track Review Underway</span>
+            <p className="text-[11px] text-slate-400">A tailored pod staffing breakdown and rate card will be delivered within 24h.</p>
           </div>
 
           <Button

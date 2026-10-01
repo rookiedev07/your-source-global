@@ -12,12 +12,6 @@ export const contactFormSchema = z.object({
   email: z
     .string()
     .email({ message: 'Please provide a valid corporate email address.' }),
-  phone: z
-    .string()
-    .optional()
-    .refine((val) => !val || /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(val), {
-      message: 'Please provide a valid phone number format.',
-    }),
   service: z
     .string()
     .min(1, { message: 'Please select a primary service discipline of interest.' }),

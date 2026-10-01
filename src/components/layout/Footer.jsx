@@ -7,7 +7,6 @@ import {
   Globe,
   MapPin,
   Mail,
-  Phone,
   ArrowUp,
   Linkedin,
   Twitter,
@@ -169,8 +168,7 @@ export const Footer = () => {
                         {hub.regionCode}
                       </span>
                     </div>
-                    <p className="text-[11px] text-slate-600 font-mono mb-1">{hub.address}</p>
-                    <p className="text-[11px] text-slate-500 font-mono">{hub.phone}</p>
+                    <p className="text-[11px] text-slate-600 font-mono">{hub.address}</p>
                   </div>
                 ))}
               </div>
