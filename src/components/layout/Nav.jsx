@@ -63,9 +63,8 @@ export const Nav = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 h-20 flex items-center bg-white/95 backdrop-blur-md border-b border-slate-200/80 text-navy-900 ${
-          isScrolled ? 'shadow-md' : 'shadow-sm'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 h-20 flex items-center bg-white/95 backdrop-blur-md border-b border-slate-200/80 text-navy-900 ${isScrolled ? 'shadow-md' : 'shadow-sm'
+          }`}
       >
         <Container size="wide" className="flex items-center justify-between w-full">
           <a
@@ -77,7 +76,7 @@ export const Nav = () => {
             <img
               src="/brand/logo.png"
               alt="Your Source Global Logo"
-              className="h-9 md:h-18 w-auto object-contain transition-all duration-300"
+              className="h-16 md:h-24 w-auto object-contain transition-all duration-300"
             />
           </a>
 
