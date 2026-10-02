@@ -20,6 +20,7 @@ export const ShortLeadForm = ({
 }) => {
   const [submitted, setSubmitted] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const {
     register,
@@ -33,13 +34,15 @@ export const ShortLeadForm = ({
       email: '',
       company: '',
       message: '',
+      botcheck: '',
     },
   });
 
   const isDark = theme === 'dark';
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     setIsSubmitting(true);
+    setSubmitError(null);
     const result = shortLeadFormSchema.safeParse(values);
 
     if (!result.success) {
@@ -53,19 +56,49 @@ export const ShortLeadForm = ({
       return;
     }
 
-    setTimeout(() => {
-      console.log(`=== [YSG SHORT LEAD CAPTURE (${formId})] ===`);
-      console.log(JSON.stringify(result.data, null, 2));
-      console.log('============================================');
-
-      setSubmitted(result.data);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError('Web3Forms access key is not set. Please add VITE_WEB3FORMS_ACCESS_KEY to your .env file.');
       setIsSubmitting(false);
-      reset();
-    }, 500);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Fast-Track Quote Lead: ${result.data.name} (${result.data.company})`,
+          from_name: 'YSG Fast-Track Portal',
+          botcheck: values.botcheck || '',
+          form_source: formId,
+          ...result.data,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmitted(result.data);
+        reset();
+      } else {
+        throw new Error(data.message || 'Submission failed. Please check your credentials and try again.');
+      }
+    } catch (err) {
+      console.error(`[Web3Forms ${formId} Error]`, err);
+      setSubmitError(err.message || 'Failed to submit quote request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(null);
+    setSubmitError(null);
     reset();
   };
 
@@ -112,6 +145,28 @@ export const ShortLeadForm = ({
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
+          {/* Honeypot field for bot spam prevention */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+            {...register('botcheck')}
+          />
+
+          {submitError && (
+            <div className={`p-3 rounded-xl text-xs flex items-start gap-2 border ${
+              isDark
+                ? 'bg-red-950/60 border-red-800 text-red-200'
+                : 'bg-red-50 border-red-200 text-red-700'
+            }`}>
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-400" />
+              <span>{submitError}</span>
+            </div>
+          )}
+
           <div className="mb-4">
             <div className="mb-1">
               <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded ${
@@ -245,7 +300,7 @@ export const ShortLeadForm = ({
                 : 'bg-navy-800 text-white hover:bg-navy-900'
             }`}
           >
-            {isSubmitting ? 'Validating...' : buttonText}
+            {isSubmitting ? 'Sending Request...' : buttonText}
           </Button>
         </form>
       )}

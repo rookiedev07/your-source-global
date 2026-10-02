@@ -18,6 +18,7 @@ import {
 export const ContactSection = () => {
   const [submittedData, setSubmittedData] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const {
     register,
@@ -32,11 +33,13 @@ export const ContactSection = () => {
       email: '',
       service: '',
       message: '',
+      botcheck: '',
     },
   });
 
   const onSubmit = async (values) => {
     setIsSubmitting(true);
+    setSubmitError(null);
 
     const result = contactFormSchema.safeParse(values);
 
@@ -51,19 +54,49 @@ export const ContactSection = () => {
       return;
     }
 
-    setTimeout(() => {
-      console.log('=== [YSG LEAD CAPTURE PAYLOAD] ===');
-      console.log(JSON.stringify(result.data, null, 2));
-      console.log('==================================');
-
-      setSubmittedData(result.data);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError('Web3Forms access key is not set. Please add VITE_WEB3FORMS_ACCESS_KEY to your .env file.');
       setIsSubmitting(false);
-      reset();
-    }, 600);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Custom Proposal Request: ${result.data.name} (${result.data.company}) - ${result.data.service}`,
+          from_name: 'YSG Corporate Portal',
+          botcheck: values.botcheck || '',
+          form_source: 'Enterprise Contact Proposal Form',
+          ...result.data,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setSubmittedData(result.data);
+        reset();
+      } else {
+        throw new Error(data.message || 'Submission failed. Please check your credentials and try again.');
+      }
+    } catch (err) {
+      console.error('[Web3Forms Contact Error]', err);
+      setSubmitError(err.message || 'Unable to submit request. Please try again or reach out directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
     setSubmittedData(null);
+    setSubmitError(null);
     reset();
   };
 
@@ -201,6 +234,24 @@ export const ContactSection = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+                {/* Honeypot field for bot spam prevention */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  {...register('botcheck')}
+                />
+
+                {submitError && (
+                  <div className="p-3.5 rounded-xl text-xs flex items-start gap-2.5 bg-red-50 border border-red-200 text-red-700">
+                    <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-red-500" />
+                    <span className="font-medium">{submitError}</span>
+                  </div>
+                )}
+
                 <div>
                   <h3 className="text-xl font-display font-bold text-navy-900">
                     Tell Us About Your Requirements
@@ -336,7 +387,7 @@ export const ContactSection = () => {
                   iconPosition="right"
                   className="w-full justify-center bg-navy-800 text-white hover:bg-navy-900 font-bold py-3.5 shadow-md"
                 >
-                  {isSubmitting ? 'Validating & Submitting...' : 'Submit Request For Quote'}
+                  {isSubmitting ? 'Submitting Proposal Request...' : 'Submit Request For Quote'}
                 </Button>
 
                 <p className="text-[11px] text-center text-slate-400 leading-normal">
